@@ -1,0 +1,22 @@
+{
+  "name": "Birthday Planner",
+  "short_name": "BdayPlan",
+  "description": "Планировщик дня рождения: гости, еда, бюджет, покупки",
+  "start_url": "/app",
+  "display": "standalone",
+  "background_color": "#0f0f1a",
+  "theme_color": "#e91e8c",
+  "orientation": "portrait-primary",
+  "categories": ["productivity", "lifestyle"],
+  "lang": "ru",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    { "name": "Гости",   "url": "/app?tab=guests",   "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Еда",     "url": "/app?tab=food",     "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Покупки", "url": "/app?tab=shopping", "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
