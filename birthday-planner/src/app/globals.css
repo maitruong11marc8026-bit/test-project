@@ -208,3 +208,89 @@ textarea.input-base {
   resize: vertical;
   min-height: 80px;
 }
+
+/* ─── Tab content animation ─────────────────────── */
+.tab-content {
+  animation: fadeIn 0.25s ease forwards;
+}
+
+/* ─── Desktop sidebar ────────────────────────────── */
+.desktop-sidebar {
+  display: flex;
+  flex-shrink: 0;
+}
+.mobile-sidebar {
+  display: none !important;
+}
+.menu-btn {
+  display: none !important;
+}
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .desktop-sidebar { display: none !important; }
+  .mobile-sidebar  { display: flex !important; }
+  .menu-btn        { display: flex !important; }
+
+  main[style] { padding: 16px 16px !important; }
+
+  .tab-label { display: none; }
+
+  /* Landing grid collapses */
+  .landing-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .landing-grid-steps { grid-template-columns: 1fr 1fr !important; }
+}
+
+@media (max-width: 480px) {
+  .landing-grid-4    { grid-template-columns: 1fr 1fr !important; }
+  .landing-grid-steps { grid-template-columns: 1fr !important; }
+}
+
+/* ─── Smooth page transitions ────────────────────── */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.scale-in { animation: scaleIn 0.2s ease forwards; }
+
+/* ─── Tooltip ────────────────────────────────────── */
+[data-tip] {
+  position: relative;
+  cursor: help;
+}
+[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a2e;
+  color: var(--text);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  border: 1px solid var(--border);
+  z-index: 100;
+}
+[data-tip]:hover::after { opacity: 1; }
+
+/* ─── Number input cleanup ───────────────────────── */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { opacity: 0.4; }
+
+/* ─── Shimmer loading ────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
